@@ -1,5 +1,10 @@
 # Research Summarizer
 
+## Live Application
+
+You can access the live application here:
+- [Research Summarizer](https://researchsummarizer.onrender.com)
+
 ## Description
 
 The **Research Summarizer** is a Django-based web application designed to help users summarize research papers by extracting key information from uploaded PDFs. This project leverages AI and Natural Language Processing (NLP) techniques to generate concise summaries, making it easier for researchers, students, and professionals to grasp the main points of extensive documents quickly.
@@ -16,9 +21,9 @@ The **Research Summarizer** is a Django-based web application designed to help u
 
 - **Backend**: Django
 - **Frontend**: HTML, CSS, JavaScript (with optional frameworks)
-- **Database**: SQLite (for development)
+- **Database**: PostgreSQL (for production on Render)
 - **AI & NLP Libraries**: LangChain, PyPDF2, etc.
-- **Deployment**: Vercel
+- **Deployment**: Render
 
 ## Installation Instructions
 
@@ -43,7 +48,7 @@ The **Research Summarizer** is a Django-based web application designed to help u
     Make sure you have a requirements.txt file in your project directory. If not, you can create one using:
 
     ```bash
-    pip freeze requirements.txt
+    pip freeze > requirements.txt
 
 5. **Then install the packages**:
 
@@ -60,12 +65,14 @@ The **Research Summarizer** is a Django-based web application designed to help u
     DATABASE_URL=sqlite:///db.sqlite3
     GOOGLE_CLIENT_ID=your_google_client_id_here
     GOOGLE_CLIENT_SECRET=your_google_client_secret_here
+    other varibles according to your development 
 
 7. **Run Migrations**:
 
     Make sure your database is set up correctly by running migrations:
 
     ```bash
+        python manage.py makemigrations
         python manage.py migrate
 
 8. **Start the Development Server**:
@@ -97,5 +104,10 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 - Thanks to the contributors and developers of the libraries used in this project.
 - Special thanks to the open-source community for their support and resources.
+
+
+This version includes the following updates:
+- Added the **Live Application** section with a link to your deployed app on Render.
+- Updated the **Technologies Used** section to reflect that the production environment uses PostgreSQL and is deployed on Render.
 
 For more information, please contact the project maintainer or check the repository's issues for any questions or suggestions.
