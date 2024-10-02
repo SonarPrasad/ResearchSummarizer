@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Summarizer</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Research Summarizer Dashboard</h1>
+        <p>Summarize research documents and generate project reports efficiently!</p>
+        <nav>
+            <a href="{% url 'about' %}">About</a>
+            {% if user.is_authenticated %}
+                <span class="welcome-message">Welcome, {{ user.username }}!</span>
+                <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
+                    {% csrf_token %}
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Log in</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </nav>
+    </header>    
+    
+    <div class="dashboard">
+        <!-- Upload PDFs Section -->
+        <section id="upload-section">
+            <h2>Upload PDFs</h2>
+            <form method="post" enctype="multipart/form-data" action="{% url 'upload_pdf' %}">
+                {% csrf_token %}
+                <input type="file" name="file" required>
+                <button type="submit" name="upload_pdf">Upload</button>
+            </form>
+            {% if upload_message %}
+                <p>{{ upload_message }}</p>
+            {% endif %}
+            <div id="pdf-list">
+                <h3>Uploaded PDFs</h3>
+                <ul class="pdf-list">
+                    {% for pdf in uploaded_pdfs %}
+                        <li>{{ pdf }}</li>
+                    {% empty %}
+                        <li>No PDFs uploaded yet.</li>
+                    {% endfor %}
+                </ul>
+            </div>            
+        </section>        
+
+        <!-- Ask Question Section -->
+        <section id="ask-section">
+            <h2>Ask Questions About Your PDFs</h2>
+            <form method="post" action="{% url 'ask_question' %}">
+                {% csrf_token %}
+                {{ form.question_text }}
+                <button type="submit" name="ask_question">Get Answer</button>
+            </form>
+            <div id="qa-section">
+                {% if last_question and answer %}
+                    <p><strong>Question:</strong> {{ last_question }}</p>
+                    <p><strong>Answer:</strong> {{ answer|safe }}</p>
+                {% else %}
+                    <p>No questions asked yet.</p>
+                {% endif %}
+            </div>
+        </section>       
+
+        <!-- Create Word File Section (Bottom) -->
+        <section id="word-section" class="bottom-section">
+            <h2>Create Project Report</h2>
+            <form action="{% url 'create_word' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="title" id="title-field" class="form" placeholder="Title for the Word file" required>
+                <input type="text" name="user_input" id="user-input-field" class="form" placeholder="Enter content for the Word file (separated by comma ',')" required>
+                <button type="submit">Create Word File</button>
+            </form>
+            
+            {% if word_message %}
+                <p>{{ word_message }}</p>
+                {% if download_link %}
+                    <a href="{% url 'download_file' download_link %}" class="btn">Download Word File</a>
+                {% endif %}
+            {% endif %}                                 
+        </section>
+    </div>      
+
+    <footer>
+        <p>&copy; 2024 Research Summarizer. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            {% if scroll_to %}
+                var element = document.getElementById("{{ scroll_to }}");
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            {% endif %}
+        };
+    </script>    
+
+</body>
+</html>
