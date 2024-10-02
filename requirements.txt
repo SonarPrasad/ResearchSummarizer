@@ -8,5 +8,7 @@ psycopg2-binary>=2.9
 PyPDF2>=2.10.0
 python-docx>=0.8.11
 langchain>=0.0.200
+langchain-community
+langchain-core
 langchain-google-genai>=0.0.5
 faiss-cpu>=1.7.1
