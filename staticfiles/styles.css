@@ -1,0 +1,442 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: #333;
+    background: linear-gradient(135deg, #f9f9f9, #e6f7ff); /* Gradient background */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #4a90e2, #50e3c2); /* Gradient background */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    position: relative; /* For positioning link animation */
+    overflow: hidden; /* Hide overflow for smooth animation */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    animation: slideIn 1s ease-in-out;
+}
+
+header p {
+    font-size: 1.2em;
+    margin: 10px 0;
+    animation: slideIn 1s ease-in-out;
+}
+
+/* Navigation */
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    position: relative;
+    padding: 5px 15px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom right;
+}
+
+nav a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+nav a:hover {
+    color: #50e3c2; /* Accent color on hover */
+}
+
+/* Main Container */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1:2 ratio for left and main content */
+    grid-template-rows: auto 1fr auto; /* Sections stacked vertically */
+    gap: 20px;
+    padding: 20px;
+    height: 100vh; /* Full viewport height */
+    box-sizing: border-box;
+}
+
+/* Sections */
+section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Header for Sections */
+section h2 {
+    color: #4a90e2;
+    margin-bottom: 15px;
+    animation: slideIn 1s ease-in-out;
+}
+
+/* Form Elements */
+form {
+    display: flex;
+    flex-direction: column;
+    background: #e6f7ff; /* Light blue background for the form */
+    border: 1px solid #4a90e2; /* Border to match the theme */
+    border-radius: 8px; /* Rounded corners for form */
+    padding: 20px; /* Increased padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="file"],
+form textarea {
+    padding: 12px;
+    margin-bottom: 15px; /* Increased space between inputs */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus,
+form input[type="file"]:focus,
+form textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+.fixed-textarea {
+    resize: none; /* Disable resizing */
+    height: 100px; /* Fixed height */
+    overflow: auto; /* Enable scrolling if text overflows */
+    width: 100%; /* Full width */
+}
+
+form textarea,
+.textarea-question {
+    padding: 10px;
+    margin-bottom: 10px;  /* Ensure spacing is consistent */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+    background: #e6f7ff;  /* Light blue background for consistency */
+}
+
+form textarea:focus,
+.textarea-question:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+/* Button Styles */
+form button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: #4a90e2; /* Bright blue */
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background: #357abd; /* Darker blue for hover */
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+/* Dashboard */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Adjust the ratios to give more space to the ask section */
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+#word-section {
+    grid-column: span 2;  /* Make the Create Word section span both columns */
+}
+
+.bottom-section {
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    background: #4a90e2; /* Bright blue */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    grid-column: 1 / span 2; /* Span across both columns */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#upload-section {
+    grid-column: 1; /* Keep the Upload PDFs section in the first column */
+    grid-row: span 1; /* Maintain one row */
+    height: 400px; /* Increase the height of the upload section */
+}
+
+#ask-section {
+    grid-column: 2; /* Place the Ask Questions section in the second column */
+    grid-row: span 1; /* Maintain one row */
+    height: 400px; /* Increase the height of the ask section */
+}
+
+.pdf-list {
+    max-height: 150px; /* Set a max height to prevent overflow */
+    overflow-y: auto; /* Add scrolling if needed */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Button Styles */
+.btn {
+    background-color: #007BFF; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for size */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Align with other elements */
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin around the button */
+    cursor: pointer; /* Pointer on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Container for Login and Signup Forms */
+.auth-container {
+    max-width: 400px; /* Max width of the container */
+    margin: 50px auto; /* Center the container horizontally and add top margin */
+    padding: 30px; /* Increased padding for comfort */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    background-color: #ffffff; /* White background for the container */
+    background: linear-gradient(135deg, #e6f7ff, #f9f9f9); /* Subtle gradient for visual appeal */
+    display: flex;
+    flex-direction: column; /* Align child elements in a column */
+    align-items: center; /* Center child elements horizontally */
+    animation: fadeIn 0.5s ease-in-out; /* Animation for the fade-in effect */
+    box-sizing: border-box; /* Include padding and border in total width and height */
+}
+
+/* Styles for form elements */
+.auth-form {
+    width: 100%; /* Take full width of the container */
+}
+
+/* Styles for form groups */
+.form-group {
+    margin-bottom: 20px; /* Increased space between groups */
+    width: 100%; /* Ensure full width for form groups */
+}
+
+/* Styles for labels */
+label {
+    margin-bottom: 8px; /* Increased space below labels */
+    font-weight: bold;
+}
+
+/* Styles for inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 12px; /* Increased padding for inputs */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Full width for inputs */
+    transition: border-color 0.3s ease; /* Smooth transition for focus */
+    box-sizing: border-box; /* Include padding and border in total width */
+}
+
+/* Styles for error messages */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+}
+
+/* Styles for submit button */
+.submit-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 12px; /* Increased padding for the button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Full width for submit button */
+    transition: background 0.3s ease; /* Smooth transition on hover */
+}
+
+.submit-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.logout-button {
+    background: none; /* No background */
+    border: none; /* No border */
+    color: inherit; /* Inherit text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    font: inherit; /* Inherit font styles */
+    text-decoration: none; /* No underline */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+/* Welcome Message Styling */
+.welcome-message {
+    position: relative; /* Change to relative positioning for consistency */
+    margin: 20px 0; /* Use margin instead of absolute positioning for spacing */
+    font-size: 1.2em; /* Maintain larger font size for visibility */
+    color: #fff; /* Keep text color white for contrast */
+    background: rgba(80, 227, 194, 0.9); /* Slightly adjust transparency for visibility */
+    padding: 10px 20px; /* Maintain padding for spacing */
+    border-radius: 8px; /* Round corners for a softer look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adjust shadow for a consistent 3D effect */
+    animation: popFadeIn 0.8s ease-out forwards; /* Keep the pop fade-in effect */
+    opacity: 1; /* Set to fully visible; adjust opacity in animation */
+    font-weight: bold; /* Keep text bold for readability */
+    text-align: center; /* Center text for better alignment */
+    width: fit-content; /* Adjust width to fit content nicely */
+    display: inline-block; /* Allow it to sit inline with other elements */
+}
+
+/* Pop Fade-In Animation for Welcome Message */
+@keyframes popFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%) scale(0.8); /* Start with a slight scale effect */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1); /* End with normal scale */
+    }
+}
+
+/* Optional: Hover Effect for Welcome Message */
+.welcome-message:hover {
+    background: rgba(80, 227, 194, 1); /* Remove transparency on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 30px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+
+    #upload-section,
+    #ask-section {
+        height: auto; /* Allow height to adjust automatically */
+    }
+}
+
+/* Additional Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Google Button Styles */
+.google-login-space {
+    margin: 20px 0; /* Add spacing above and below the button */
+}
+
+.google-btn i {
+    margin-right: 10px; /* Adds space between icon and text */
+}
+
+.google-btn {
+    background-color: #ffffff; /* Use white background */
+    color: #4285F4; /* Google blue for text */
+    border: 1px solid #4285F4; /* Blue border */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none; /* Remove underline from anchor */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.google-btn .google-icon {
+    width: 20px; /* Set the icon size */
+    height: 20px; /* Set the icon size */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.google-btn:hover {
+    background-color: #4285F4; /* Change background on hover */
+    color: white; /* Change text color on hover */
+}
