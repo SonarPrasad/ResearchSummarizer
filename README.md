@@ -21,66 +21,10 @@ The **Research Summarizer** is a Django-based web application designed to help u
 
 - **Backend**: Django
 - **Frontend**: HTML, CSS, JavaScript (with optional frameworks)
-- **Database**: PostgreSQL (for production on Render)
+- **Database**: PostgreSQL (for production on Supabase)
 - **AI & NLP Libraries**: LangChain, PyPDF2, etc.
 - **Deployment**: Render
 
-## Installation Instructions
-
-1. **Clone the Repository**:
-
-   ```bash
-   git clone https://github.com/SonarPrasad/ResearchSummarizer.git
-
-2. **Navigate to the Project Directory**:
-
-    ```bash
-    cd ResearchSummarizer
-
-3. **Set Up a Virtual Environment**:
-
-    ```bash
-    python -m venv env
-    source env/bin/activate   # On Windows use `env\\Scripts\\activate`
-
-4. **Install Required Packages**:
-
-    Make sure you have a requirements.txt file in your project directory. If not, you can create one using:
-
-    ```bash
-    pip freeze > requirements.txt
-
-5. **Then install the packages**:
-
-    ```bash
-    pip install -r requirements.txt
-
-6. **Create a .env File**:
-
-    Create a .env file in the project root directory and add your environment variables. Here is an example structure:
-
-    ```plaintext
-    SECRET_KEY=your_secret_key_here
-    DEBUG=True
-    DATABASE_URL=sqlite:///db.sqlite3
-    GOOGLE_CLIENT_ID=your_google_client_id_here
-    GOOGLE_CLIENT_SECRET=your_google_client_secret_here
-    other varibles according to your development 
-
-7. **Run Migrations**:
-
-    Make sure your database is set up correctly by running migrations:
-
-    ```bash
-        python manage.py makemigrations
-        python manage.py migrate
-
-8. **Start the Development Server**:
-
-    Finally, run the development server to test your application locally:
-
-    ```bash
-        python manage.py runserver
 
 ## Usage
 

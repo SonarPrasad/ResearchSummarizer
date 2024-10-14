@@ -33,7 +33,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['researchsummarizer.onrender.com']
+ALLOWED_HOSTS = ["localhost", 'researchsummarizer.onrender.com']
 CORS_ALLOWED_ORIGINS = [
     "https://researchsummarizer.onrender.com",
 ]
