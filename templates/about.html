@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <title>About Us - Research Summarizer</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
-<body>
+<body id="about-page">
     <header>
         <h1>About Research Summarizer</h1>
+        <nav>
+            <a href="{% url 'home' %}" class="nav-link">Return to Home</a>
+        </nav>
     </header>
 
     <div class="container">
         <section id="about-section">
-            <h2>About Us</h2>
-            <p>Welcome to Research Summarizer! Our tool is designed to help students and researchers efficiently summarize and manage their research documents. With features that allow for easy PDF uploads, question handling, and project report generation, we aim to simplify your research workflow.</p>
-            <p>Our mission is to provide a user-friendly interface that enhances productivity and supports academic success. Explore our features and discover how Research Summarizer can assist you in your research and project work.</p>
+            <h2>Our Mission</h2>
+            <p>Welcome to Research Summarizer! We aim to simplify the research process for students, academics, and professionals by offering an AI-powered tool for quick summarization of research papers and reports.</p>
+
+            <h2>Features</h2>
+            <ul>
+                <li>Upload and summarize PDF research documents.</li>
+                <li>AI-driven question-answering and project report generation.</li>
+                <li>Responsive, user-friendly interface with secure document management.</li>
+                <li>Available on multiple platforms for enhanced productivity.</li>
+            </ul>
+
+            <h2>Our Goal</h2>
+            <p>Our goal is to make research more accessible and to help students and researchers focus on what really matters: the content. By automating summarization and providing a platform for managing documents, Research Summarizer allows users to save time and work more efficiently.</p>
+
+            <h2>Get Involved</h2>
+            <p>We're continuously improving! Feel free to contribute to our open-source project on GitHub and help us build a better tool for everyone.</p>
+
+            <a href="https://github.com/SonarPrasad/ResearchSummarizer" class="btn">Visit Our GitHub</a>
         </section>
     </div>
 

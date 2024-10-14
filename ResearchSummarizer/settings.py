@@ -33,8 +33,11 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'researchsummarizer.onrender.com']
-
+ALLOWED_HOSTS = ['researchsummarizer.onrender.com']
+CORS_ALLOWED_ORIGINS = [
+    "https://researchsummarizer.onrender.com",
+]
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -48,7 +51,8 @@ INSTALLED_APPS = [
     'summarizer',
     'authapp',
     'social_django',
-    'sslserver'
+    'sslserver',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +65,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'ResearchSummarizer.urls'
